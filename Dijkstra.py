@@ -37,7 +37,9 @@ class Node:
 		
 	# Returns true if an edge exists between this node and n
 	def hasEdge(self,n):
-		return n in dict(self.edges) or self in dict(n.edges)
+		if not self.directed:
+			return n in dict(self.edges) or self in dict(n.edges)
+		return n in dict(self.edges)
 	
 	# A string representation
 	def __str__(self):
